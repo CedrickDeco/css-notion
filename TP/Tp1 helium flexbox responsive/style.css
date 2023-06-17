@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Dancing+Script:wght@400;600&family=Great+Vibes&family=Lora:ital,wght@1,400;1,500;1,600&family=Philosopher:wght@400;700&family=Redressed&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Saira+Condensed:wght@500&display=swap");
+:root {
+    --textcolor: #ede4d0;
+    --headerbgcolor: #1d1d1d;
+    --infoscolor: black;
+    --backselec: rgb(253, 253, 99);
+}
+
+* {
+    font-family: "Redressed", cursive;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--headerbgcolor);
+    color: var(--textcolor);
+    width: 100vw;
+}
+
+@media screen and (max-width: 769px) {
+    nav {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px 0;
+        margin: 0 30px;
+    }
+    nav h2 {
+        margin-right: 20px;
+    }
+    nav ul {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        width: 50%;
+        margin-right: 57px;
+    }
+    nav li {
+        display: flex;
+        justify-content: space-between;
+        width: 10%;
+    }
+    .header {
+        display: flex;
+        flex-direction: column;
+        margin: 30px 30px;
+    }
+    .header-left {
+        display: flex;
+        flex-direction: column;
+        text-align: justify;
+        padding: 0 0;
+    }
+    h1 {
+        font-size: 3rem;
+    }
+    .header-left-container h3 {
+        color: #474dff;
+        font-size: 2rem;
+    }
+    .header-right {
+        /* width: 50%; */
+        display: flex;
+        justify-content: center;
+        padding: 20px 0;
+    }
+    #imagemodem {
+        width: 310px;
+        justify-content: center;
+        text-align: center;
+    }
+    .infos {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        background: var(--infoscolor);
+        margin: 20px 20px;
+        border-radius: 10px;
+        padding: 10px 20px;
+    }
+    .infos-left {
+        width: 100%;
+    }
+    .infos-left h3 {
+        font-family: "Inter", sans-serif;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .btn-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    button {
+        border: none;
+        background: #474dff;
+        color: white;
+        width: 150px;
+        padding: 10px 0;
+        border-radius: 10px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        margin: 5px;
+    }
+    .infos-right {
+        width: 100%;
+    }
+    .infos-right h3 {
+        font-family: "Inter", sans-serif;
+        margin-bottom: 20px;
+        padding-top: 20px;
+        text-align: center;
+    }
+    .investors {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        height: 40%;
+        padding: 20px 0px;
+    }
+    .img-container img {
+        height: 40px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 30px;
+        width: 100vw;
+    }
+    nav ul {
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+        margin-right: 10px;
+        align-items: flex-end;
+    }
+    .header {
+        display: flex;
+        justify-content: space-between;
+        margin: 30px 30px;
+    }
+    .header-left {
+        display: flex;
+        justify-content: center;
+        width: 50%;
+        align-items: center;
+    }
+    h1 {
+        font-size: 3rem;
+    }
+    .header-left-container h3 {
+        color: #474dff;
+        font-size: 2rem;
+    }
+    .header-right {
+        display: flex;
+        justify-content: center;
+        width: 50%;
+        padding: 20px 30px;
+    }
+    .header-right img {
+        height: 300px;
+    }
+    .infos {
+        display: flex;
+        justify-content: space-between;
+        background: var(--infoscolor);
+        margin: 20px 20px;
+        border-radius: 10px;
+        padding: 10px 20px;
+    }
+    .infos-left {
+        width: 33%;
+    }
+    .infos-left h3 {
+        font-family: "Inter", sans-serif;
+        margin-bottom: 20px;
+    }
+    .header-left-container p {
+        text-align: justify;
+    }
+    .btn-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    button {
+        border: none;
+        background: #474dff;
+        color: white;
+        width: 150px;
+        padding: 10px 0;
+        border-radius: 10px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        margin: 5px;
+    }
+    .infos-right {
+        width: 67%;
+    }
+    .infos-right h3 {
+        font-family: "Inter", sans-serif;
+        margin-bottom: 20px;
+    }
+    .investors {
+        display: flex;
+        justify-content: center;
+        height: 80%;
+        padding: 20px 0px;
+    }
+    .img-container img {
+        height: 60px;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 30px;
+    }
+    nav ul {
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+        margin-right: 30px;
+    }
+    .header {
+        display: flex;
+        justify-content: space-between;
+        margin: 30px 30px;
+    }
+    .header-left {
+        display: flex;
+        justify-content: center;
+        width: 50%;
+        align-items: center;
+    }
+    h1 {
+        font-size: 3rem;
+    }
+    .header-left-container h3 {
+        color: #474dff;
+        font-size: 2rem;
+    }
+    .header-right {
+        display: flex;
+        justify-content: center;
+        width: 50%;
+        padding: 20px 30px;
+    }
+    #imagemodem {
+        height: 500px;
+    }
+    .infos {
+        display: flex;
+        justify-content: space-between;
+        background: var(--infoscolor);
+        margin: 20px 20px;
+        border-radius: 10px;
+        padding: 10px 20px;
+    }
+    .infos-left {
+        width: 33%;
+    }
+    .infos-left h3 {
+        font-family: "Inter", sans-serif;
+        margin-bottom: 20px;
+    }
+    .btn-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    button {
+        border: none;
+        background: #474dff;
+        color: white;
+        width: 150px;
+        padding: 10px 0;
+        border-radius: 10px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        margin: 5px;
+    }
+    .infos-right {
+        width: 67%;
+    }
+    .infos-right h3 {
+        font-family: "Inter", sans-serif;
+        margin-bottom: 20px;
+    }
+    .investors {
+        display: flex;
+        justify-content: center;
+        height: 80%;
+        padding: 20px 0px;
+    }
+    .img-container img {
+        height: 60px;
+        padding: 0 50px;
+    }
+}

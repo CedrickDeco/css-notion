@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Dancing+Script:wght@400;600&family=Great+Vibes&family=Lora:ital,wght@1,400;1,500;1,600&family=Philosopher:wght@400;700&family=Redressed&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url(./bg.jpg) no-repeat center/cover fixed;
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    text-shadow: 2px 0px 4px rgb(255, 230, 88);
+    color: rgb(23, 116, 255);
+    font-family: 'Philosopher', sans-serif;
+    letter-spacing: 2px;
+}
+
+main {
+    background: whitesmoke;
+    width: 90%;
+    margin: 10px auto;
+    border-radius: 15px;
+    min-height: auto;
+    padding: 5px 20px;
+    box-shadow: rgb(129 239 239 / 84%) 2px -2px 3px 0px;
+}
+
+.positioning,
+.flexbox,
+.grid {
+    border: 2px solid skyblue;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 20px;
+}
+
+
+/* *****************Partie positioning****************** */
+
+.positioning {
+    position: relative;
+}
+
+#cercle {
+    background: rgb(166, 230, 255);
+    height: auto;
+    width: auto;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    /* vertical-align: middle; */
+    border-radius: 50%;
+    padding: 10px;
+    transform: translateY(-50%);
+}
+
+#rectangle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgb(255, 255, 67);
+    padding: 10px;
+    border: 1px solid rgb(98, 184, 255);
+}
+
+
+/* *****************Partie flexbox****************** */
+
+ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+li {
+    background: turquoise;
+    list-style-type: none;
+    height: 160px;
+    width: 160px;
+    display: flex;
+    align-items: center;
+    /* pour le "align-item" prenne il faut d'abort mettre le display flex*/
+    justify-content: center;
+    font-size: 1.7rem;
+}
+
+
+/* *****************Partie grid****************** */
+
+.img {
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+#firstname {
+    grid-area: i1;
+}
+
+#surname {
+    grid-area: i2;
+}
+
+textarea {
+    grid-area: ta;
+    /* height: 100px; */
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50px 100px 45px;
+    grid-template-areas: "i1 i2" "ta ta" "bt bt";
+}
+
+input,
+textarea {
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid turquoise;
+    box-shadow: rgba(255, 253, 135, 0.84) 2px -2px 3px 0px;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    grid-area: bt;
+    cursor: pointer;
+    transition: 0.3s;
+    background: rgb(117, 255, 241);
+    width: 15%;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+input[type="submit"]:hover {
+    background: rgb(255, 176, 255);
+    color: rgb(0, 0, 54);
+}
+
+@media screen and (max-width: 750px) {
+    .grid-container {
+        display: block;
+    }
+    form {
+        display: block;
+        grid-template-columns: 1fr;
+        /* grid-template-rows: 1fr 1fr 1fr 1fr; */
+    }
+    input,
+    textarea {
+        height: 50px;
+        width: 93%;
+    }
+}

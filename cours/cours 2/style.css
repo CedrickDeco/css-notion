@@ -1,0 +1,393 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Dancing+Script:wght@400;600&family=Great+Vibes&family=Lora:ital,wght@1,400;1,500;1,600&family=Philosopher:wght@400;700&family=Redressed&display=swap');
+:root {
+    --textcolor: #ede4d0;
+    --pinkshadow: #ffacc3;
+    --backselec: rgb(253, 253, 99);
+    --yellowshadow: rgb(255 253 135 / 84%);
+    --backcolortext: rgba(0, 0, 0, 0.507);
+    --turquoise: turquoise;
+    --violette: rgb(0, 24, 161);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url(./bg.jpg) center/cover;
+    min-height: 100vh;
+    font-family: 'Redressed', cursive;
+    color: var(--textcolor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    /*ceci fait en sorte que tout ce qui depasse le body soit caché*/
+}
+
+h1 {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+h1::after {
+    content: "";
+    position: absolute;
+    background: var(--textcolor);
+    height: 1px;
+    width: 100%;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    animation: h1anim 10s ease-in-out forwards;
+    /*Ici on appelle notre animation nomée "h1anim" le "ease-in-out " est le type d'animation le "forward" c'est pour que le trait ne disparaisse pas apres l'animation */
+    transform-origin: left;
+    /*il permet de dire de quel cote debute l'animation. Par defaut il part du centre ce qui veut dire que si tu ne le met pas, l'animation va commencé au centre*/
+}
+
+@keyframes h1anim {
+    100% {
+        /*ici on parametre notre animation. a la place de "100%" on peut aussi mettre "to". Il permet d'indiquer l'animation part de son etat initial "le h1:after" à son etat final "le @keyframes" */
+        transform: translateX(-50%) scaleX(1);
+        /* si l'element sur lequel on veut appliquer une animation a deja un "transform" comme c'est le cas ici(le h1:after) on doit reappeller le transforme la dans l'animation car l'animation ecrase l'ancient transform. Le le scale qui ermet l'allongement du trait*/
+    }
+}
+
+
+/*********************Partie grid et card***************************/
+
+.card {
+    background: var(--backcolortext);
+    width: calc(100% - 50px);
+    /*ceci permet permet de mettre une marge externe à gauche et à droite de 50px*/
+    padding: 20px 20px 6px;
+    box-shadow: var(--yellowshadow) 0px -2px 7px 0px;
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    /*il permet de flouter l'arriere plan*/
+}
+
+.card::before {
+    content: "\2606";
+    /*Permet de mettre une etoile*/
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    font-size: 2rem;
+    /* pour agrandir les icones on utilise le font-size*/
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+
+
+/*********************Partie paragraphe***************************/
+
+#paragrapĥe {
+    text-align: justify;
+    font-size: 1.7rem;
+    text-indent: 3rem;
+    line-height: 46px;
+    margin: 15px 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+    /*A partir de display jusqu'a overflow on utilise ces elements pour pour afficher un paragraphe avec les points de suspention a partir de 5 lines*/
+}
+
+#paragrapĥe::selection {
+    background: var(--backselec);
+    /*ceci est pour gerer la coleur de fond lors de la selection du texte*/
+    color: black;
+}
+
+p {
+    padding: 0px 30px;
+}
+
+
+/*********************Partie polygone***************************/
+
+.polygon-container {
+    filter: drop-shadow(1px 2px 3px var(--yellowshadow));
+    /*Etant donné qu'on ne peut pas appliqué le shadow sur le polygon directement on passe par son parent direct qui est "polygon-container"*/
+    place-self: center left;
+    /*permet de centrer les elements verticalement et horizontalement mais pour cela il faudrait d'abord que son parent soit en display-grid*/
+}
+
+.polygon {
+    clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+    background: var(--pinkshadow);
+    height: 220px;
+    margin-left: 20px;
+    background: var(--pinkshadow);
+    background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+    height: 200px;
+    width: 200px;
+}
+
+.polygon::after {
+    content: "Cedrick TIAKO";
+    position: absolute;
+    background: var(--backcolortext);
+    color: var(--textcolor);
+    top: 55%;
+    width: 210px;
+    left: 55%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    text-align: center;
+    font-size: 1.7rem;
+}
+
+
+/*********************Partie checkbox***************************/
+
+.checkbox-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0 15px;
+    perspective: 40px;
+    /* ceci est la perspective dont j'ai parlé dans le commentaire sur l'animation sur label2. Plus la perspective est élevée plus elle n'est pas visible*/
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]:checked+label {
+    /*En ajoutant le "+" comme ca on dit a la machine que lorsque la checkbox est selectionnée tu applique le style suivant au label*/
+    background: var(--backselec);
+    color: black;
+    transform: scale(1.10);
+    /*Ici le "scale" permet de faire grossir le bouton lorsqu'on clique dessus. Le scale normale c'est "1" ce qui implique que quand on met par exemple "1.05" ça veut dire qu'on a mit un grossissement de "5%"*/
+    filter: drop-shadow(0px 0px 15px var(--pinkshadow));
+    -webkit-filter: drop-shadow(0px 0px 15px var(--pinkshadow));
+    -moz-filter: drop-shadow(0px 0px 15px var(--pinkshadow));
+}
+
+label {
+    cursor: pointer;
+    border: 1px solid turquoise;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.05s;
+    user-select: none;
+    /*ceci empeche au user de pouvoir selectionner le mot ou la phrase qui se trouve comme label ceci pour empecher les copier coller*/
+}
+
+label:first-of-type:hover {
+    /*le "first-of-type" indique le premier label etant donné que nous avons trois*/
+    animation: label1 1s infinite linear;
+    /*le "infinite permet l'animation de facon infinie"*/
+}
+
+@keyframes label1 {
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* Ce commentaire concerne l'animation 3D sur label2. Pour que la 3D fonctionne il ne faut pas oublier la perspective sur le parent(ici le parent de label2 c'est "checkbox-container") */
+
+label:nth-child(4):hover {
+    animation: label2 2s infinite linear;
+    /* le "linear" fait en sorte que le mouvement soit bcp plus regulier*/
+}
+
+@keyframes label2 {
+    33% {
+        transform: translateZ(30px);
+    }
+    66% {
+        transform: translateZ(-40px);
+    }
+    100% {
+        transform: translateZ(0);
+    }
+}
+
+
+/*********************Partie email***************************/
+
+.email {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.email input {
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid transparent;
+    font-size: 1.55rem;
+    min-width: 180px;
+    width: 40%;
+    max-width: 300px;
+}
+
+.email input:focus {
+    background: transparent;
+    color: turquoise;
+    backdrop-filter: blur(15px);
+    border: 1px solid turquoise;
+    text-align: center;
+    font-family: 'Redressed', cursive;
+    font-size: 1.55rem;
+    border-radius: 100px;
+}
+
+.email input::placeholder {
+    text-align: center;
+    font-family: 'Redressed', cursive;
+}
+
+
+/*********************Partie du bouton***************************/
+
+button {
+    cursor: pointer;
+    font-family: 'Redressed', cursive;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    background: var(--backselec);
+    color: black;
+    transition: 0.1s;
+    border: none;
+    font-size: 1.15rem;
+    display: block;
+    /*On fait display block et margin auto pour centrer le bouton*/
+    margin: auto;
+}
+
+button:active {
+    transform: scale(1.2);
+    /*ici c'est pour le grossissement du bouton lorsque l'utilisateur clique dessus*/
+}
+
+button:hover {
+    background: var(--pinkshadow);
+    color: var(--violette);
+    font-weight: bolder;
+    letter-spacing: 3px;
+}
+
+button:hover+a,
+a:hover {
+    /*cette partie permet l'animation au niveau du lien*/
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+
+/*********************Partie du lien***************************/
+
+a {
+    text-align: center;
+    display: block;
+    margin: 8px;
+    color: var(--color1);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.3s;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+a:visited {
+    color: var(--color2);
+}
+
+
+/********************* Partie de l'image ***************************/
+
+img {
+    height: 70px;
+    position: absolute;
+    filter: drop-shadow(1px 15px 3px var(--yellowshadow));
+    z-index: -1;
+    animation: spaceship 20s infinite linear;
+}
+
+@keyframes spaceship {
+    0% {
+        top: 2%;
+        left: 2%;
+        transform: rotate(90deg);
+    }
+    10% {
+        top: 6%;
+        left: 30%;
+        transform: rotate(90deg);
+    }
+    20% {
+        top: 9%;
+        left: 60%;
+        transform: rotate(90deg);
+    }
+    30% {
+        top: 0%;
+        left: 80%;
+        transform: rotate(40deg);
+    }
+    40% {
+        top: 20%;
+        left: 100%;
+        transform: rotate(181deg);
+    }
+    50% {
+        top: 50%;
+        left: 80%;
+        transform: rotate(181deg);
+    }
+    60% {
+        top: 90%;
+        left: 90%;
+        transform: rotate(276deg);
+    }
+    70% {
+        top: 85%;
+        left: 50%;
+        transform: rotate(288deg);
+    }
+    80% {
+        top: 50%;
+        left: 30%;
+        transform: rotate(321deg);
+    }
+    90% {
+        top: 28%;
+        left: 15%;
+        transform: rotate(330deg);
+    }
+    93% {
+        top: 20%;
+        left: 15%;
+        transform: rotate(332deg);
+    }
+    95% {
+        top: 12%;
+        left: 15%;
+        transform: rotate(338deg);
+    }
+    97% {
+        top: 5%;
+        left: 15%;
+        transform: rotate(340deg);
+    }
+    100% {
+        top: 2%;
+        left: 2%;
+        transform: rotate(346deg);
+    }
+}
